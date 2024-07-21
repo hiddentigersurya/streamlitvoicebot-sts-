@@ -17,66 +17,7 @@ def initialize_session_state():
 
 initialize_session_state()
 
-# Add custom CSS styles
-st.markdown(
-    """
-    <style>
-    .stApp {
-        max-width: 900px;
-        max-height: 92%;
-        margin: 0 auto;
-        padding: 2rem;
-        background-color: #f5f5f5;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .stApp h1 {
-        color: #333333;
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    .stApp .stChatMessage {
-        margin-bottom: 1rem;
-    }
-
-    .stApp .stChatMessage.user {
-        background-color: #e6f7ff;
-        border-radius: 10px;
-        padding: 0.5rem 1rem;
-    }
-
-    .stApp .stChatMessage.assistant {
-        background-color: #f0f0f0;
-        border-radius: 10px;
-        padding: 0.5rem 1rem;
-    }
-
-    .stApp .stChatMessage.assistant .stMarkdown {
-        color: #333333;
-    }
-
-    .stApp .stSpinner {
-        color: #333333;
-    }
-
-    .stApp .stButton {
-        background-color: #333333;
-        color: #ffffff;
-        border-radius: 5px;
-        padding: 0.5rem 1rem;
-    }
-
-    .stApp .stButton:hover {
-        background-color: #555555;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-st.title("Conversational Chatbot 🤖")
+st.title("OpenAI Conversational Chatbot 🤖")
 
 # Create footer container for the microphone
 footer_container = st.container()
@@ -114,4 +55,4 @@ if st.session_state.messages[-1]["role"] != "assistant":
         os.remove(audio_file)
 
 # Float the footer container and provide CSS to target it with
-footer_container.float("bottom: 0rem; position: fixed; width: 100%;")
+footer_container.float("bottom: 0rem;")
