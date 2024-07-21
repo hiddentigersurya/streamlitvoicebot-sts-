@@ -1,1 +1,6 @@
+streamlit
+openai
+python-dotenv
+audio-recorder-streamlit
+streamlit-float
 
