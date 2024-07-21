@@ -1,8 +1,4 @@
 streamlit
 openai
-SpeechRecognition==3.8.1
-pyttsx3==2.90
-PyAudio==0.2.11
 audio_recorder_streamlit
 streamlit-float
-python-dotenv==0.20.0
