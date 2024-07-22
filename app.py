@@ -81,6 +81,3 @@ st.markdown("""
 
 # Add footer container specific CSS class
 footer_container.markdown('<div class="footer-container"></div>', unsafe_allow_html=True)
-""`
-
-This code introduces CSS variables for background and text colors, adapting them based on the current theme (light or dark). The footer container is styled to always be visible at the bottom of the screen. This ensures consistency and visibility across different themes.
