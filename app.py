@@ -12,32 +12,23 @@ def initialize_session_state():
         st.session_state.messages = [
             {"role": "assistant", "content": "Hi! How may I assist you today?"}
         ]
+    # if "audio_initialized" not in st.session_state:
+    #     st.session_state.audio_initialized = False
 
 initialize_session_state()
 
 st.title("AI Conversational Chatbot 🤖")
 
-# Create fixed header container for the microphone and text
+# Create header container for the microphone
 header_container = st.container()
 with header_container:
-    st.markdown(
-        """
-        <div style="position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); text-align: center; z-index: 1000;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Microphone.svg" alt="Microphone" style="width: 100px;">
-            <p style="font-size: 1.2rem;">Click to Talk to AI</p>
-        </div>
-        """, unsafe_allow_html=True
-    )
+    audio_bytes = audio_recorder()
 
-# Create container for the conversation
-conversation_container = st.container()
-with conversation_container:
-    for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            st.write(message["content"])
 
-# Record audio when mic is clicked
-audio_bytes = audio_recorder()
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.write(message["content"])
+
 if audio_bytes:
     # Write the audio bytes to a file
     with st.spinner("Transcribing..."):
@@ -63,21 +54,5 @@ if st.session_state.messages[-1]["role"] != "assistant":
         st.session_state.messages.append({"role": "assistant", "content": final_response})
         os.remove(audio_file)
 
-# Add CSS for styling and automatic scrolling
-st.markdown(
-    """
-    <style>
-    .stContainer {
-        margin-top: 200px; /* Adjust based on the size of the fixed header */
-    }
-    .stChatMessage {
-        overflow-y: auto;
-        max-height: 70vh; /* Adjust as needed */
-    }
-    .stChatMessage div {
-        overflow-y: auto;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# Float the header container and provide CSS to target it with
+header_container.float("top: 4rem;margin-left: 38%;transform: translateX(-50%);font-size: 1.5rem;height: 3rem;")
