@@ -6,7 +6,7 @@ from streamlit_float import *
 
 # Float feature initialization
 float_init()
-st.title("AI Conversational Chatbot 🤖")
+
 def initialize_session_state():
     if "messages" not in st.session_state:
         st.session_state.messages = [
@@ -16,7 +16,7 @@ def initialize_session_state():
     #     st.session_state.audio_initialized = False
 
 initialize_session_state()
-
+st.title("AI Conversational Chatbot 🤖")
 
 # Create footer container for the microphone
 footer_container = st.container()
