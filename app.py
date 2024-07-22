@@ -6,7 +6,7 @@ from streamlit_float import *
 
 # Float feature initialization
 float_init()
-
+st.title("AI Conversational Chatbot 🤖")
 def initialize_session_state():
     if "messages" not in st.session_state:
         st.session_state.messages = [
@@ -17,11 +17,10 @@ def initialize_session_state():
 
 initialize_session_state()
 
-st.title("AI Conversational Chatbot 🤖")
 
-# Create header container for the microphone
-header_container = st.container()
-with header_container:
+# Create footer container for the microphone
+footer_container = st.container()
+with footer_container:
     audio_bytes = audio_recorder()
 
 
@@ -54,5 +53,5 @@ if st.session_state.messages[-1]["role"] != "assistant":
         st.session_state.messages.append({"role": "assistant", "content": final_response})
         os.remove(audio_file)
 
-# Float the header container and provide CSS to target it with
-header_container.float("top: 4rem;margin-left: 38%;transform: translateX(-50%);font-size: 1.5rem;height: 3rem;")
+# Float the footer container and provide CSS to target it with
+footer_container.float("bottom: 0.1rem;margin-left: 14%;")
