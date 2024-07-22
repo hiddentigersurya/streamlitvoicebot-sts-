@@ -16,6 +16,69 @@ def initialize_session_state():
     #     st.session_state.audio_initialized = False
 
 initialize_session_state()
+st.markdown(
+    """
+    <style>
+    .stApp {
+        max-width: 900px;
+        max-height: 90%;
+        margin: 0 auto;
+        padding: 20px;
+        height: 90%;
+        width: 90%;
+        background-color: #f0f0f0;
+        border-color:#000080;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .stApp h1 {
+        color: #333333;
+        font-size: 2rem;
+       
+    }
+
+    
+
+    .stApp .stChatMessage.user {
+        background-color: #e6f7ff;
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        color:#000000;
+    }
+
+    .stApp .stChatMessage.assistant {
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        color:#000000;
+    }
+
+    .stApp .stChatMessage.assistant .stMarkdown {
+        color: #000000;
+    }
+
+    .stApp .stSpinner {
+        color: #333333;
+    }
+
+    .stApp .stButton {
+        background-color: #333333;
+        color:  #A4DBE8;
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+    }
+
+    .stApp .stButton:hover {
+        background-color: #555555;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 
 st.title("OpenAI Conversational Chatbot 🤖")
 
