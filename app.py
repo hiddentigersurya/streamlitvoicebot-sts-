@@ -23,10 +23,15 @@ st.markdown(
     <style>
     .stApp {
         max-width: 900px;
-        max-height: 92%;
+        max-height: 90%;
         margin: 0 auto;
-        padding: 2rem;
-        background-color: #f5f5f5;
+        padding: 20px;
+        height: 90%;
+        width: 90%;
+        background-color: #f0f0f0;
+        border-color:#000080;
+        border-width: 1px;
+        border-style: solid;
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
@@ -34,27 +39,27 @@ st.markdown(
     .stApp h1 {
         color: #333333;
         font-size: 2rem;
-        margin-bottom: 2rem;
+       
     }
 
-    .stApp .stChatMessage {
-        margin-bottom: 1rem;
-    }
+    
 
     .stApp .stChatMessage.user {
         background-color: #e6f7ff;
         border-radius: 10px;
         padding: 0.5rem 1rem;
+        color:#000000;
     }
 
     .stApp .stChatMessage.assistant {
         background-color: #f0f0f0;
         border-radius: 10px;
         padding: 0.5rem 1rem;
+        color:#000000;
     }
 
     .stApp .stChatMessage.assistant .stMarkdown {
-        color: #333333;
+        color: #000000;
     }
 
     .stApp .stSpinner {
@@ -63,7 +68,7 @@ st.markdown(
 
     .stApp .stButton {
         background-color: #333333;
-        color: #ffffff;
+        color:  #A4DBE8;
         border-radius: 5px;
         padding: 0.5rem 1rem;
     }
@@ -83,7 +88,11 @@ footer_container = st.container()
 with footer_container:
     audio_bytes = audio_recorder()
 
+    # Style the footer section
+    
 
+    
+    
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
@@ -114,4 +123,4 @@ if st.session_state.messages[-1]["role"] != "assistant":
         os.remove(audio_file)
 
 # Float the footer container and provide CSS to target it with
-footer_container.float("bottom: 0rem; position: fixed; width: 100%;")
+footer_container.float("bottom: 0rem; position: fixed; width: 90%;display: flex; justify-content: flex-end; height:6%;margin-left:20px;margin-bottom:6px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);")
