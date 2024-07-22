@@ -17,11 +17,11 @@ def initialize_session_state():
 
 initialize_session_state()
 
-st.title("OpenAI Conversational Chatbot 🤖")
+st.title("AI Conversational Chatbot 🤖")
 
-# Create footer container for the microphone
-footer_container = st.container()
-with footer_container:
+# Create header container for the microphone
+header_container = st.container()
+with header_container:
     audio_bytes = audio_recorder()
 
 
@@ -54,5 +54,5 @@ if st.session_state.messages[-1]["role"] != "assistant":
         st.session_state.messages.append({"role": "assistant", "content": final_response})
         os.remove(audio_file)
 
-# Float the footer container and provide CSS to target it with
-footer_container.float("bottom: 0rem;")
+# Float the header container and provide CSS to target it with
+header_container.float("top: 4rem;margin-left: 38%;transform: translateX(-50%);font-size: 1.5rem;height: 3rem;")
