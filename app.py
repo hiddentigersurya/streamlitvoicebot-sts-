@@ -54,4 +54,4 @@ if st.session_state.messages[-1]["role"] != "assistant":
         os.remove(audio_file)
 
 # Float the footer container and provide CSS to target it with
-footer_container.float("bottom: 0.1rem;margin-left: 14%;")
+footer_container.float("bottom: 0.05rem;margin-left: 14%;")
