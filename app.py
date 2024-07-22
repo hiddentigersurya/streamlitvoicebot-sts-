@@ -12,6 +12,8 @@ def initialize_session_state():
         st.session_state.messages = [
             {"role": "assistant", "content": "Hi! How may I assist you today?"}
         ]
+    # if "audio_initialized" not in st.session_state:
+    #     st.session_state.audio_initialized = False
 
 initialize_session_state()
 
@@ -22,7 +24,7 @@ footer_container = st.container()
 with footer_container:
     audio_bytes = audio_recorder()
 
-# Display chat messages
+
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
@@ -54,30 +56,3 @@ if st.session_state.messages[-1]["role"] != "assistant":
 
 # Float the footer container and provide CSS to target it with
 footer_container.float("bottom: 0rem;")
-
-# Apply custom CSS for light and dark themes
-st.markdown("""
-    <style>
-    .footer-container {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: var(--background-color);
-        padding: 1rem;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-    }
-    .stTheme {
-        --background-color: #ffffff;
-        --text-color: #000000;
-    }
-    .stTheme-dark {
-        --background-color: #333333;
-        --text-color: #ffffff;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-# Add footer container specific CSS class
-footer_container.markdown('<div class="footer-container"></div>', unsafe_allow_html=True)
